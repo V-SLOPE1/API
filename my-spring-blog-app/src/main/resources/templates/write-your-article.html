@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container">
+        <form class="form-control mt-2" action="#" th:action="@{/create-article}" th:object="${articleModel}" method="POST">
+            <label for="article-title">Title</label>
+            <input class="form-control" th:field="${articleModel.title}" id="article-title"  >
+
+            <label for="article-author">Author</label>
+            <input class="form-control" th:field="${articleModel.author}" id="article-author">
+
+            <label for="article-description">Description</label>
+            <textarea class="form-control" th:field="${articleModel.description}" id="article-description"></textarea>
+
+            <div  class="btn-group-sm mt-2">
+                <a type="button" class="btn btn-secondary" th:href="@{/}">Cancel</a>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
