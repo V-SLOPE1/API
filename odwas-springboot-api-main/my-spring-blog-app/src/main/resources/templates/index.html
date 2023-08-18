@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+    <title>Blog</title>
+</head>
+<body>
+    <div class="container">
+        <h1>My Blog Application</h1>
+<!--        -->
+        <div th:each="article : ${articles}" class="mt-3">
+            <div class="card">
+                <!--            <p th:text="${article.id}"></p>-->
+                <div class="card-header p-1">
+<!--                    -->
+                    <h4 th:text="${article.title}">Everything has changed except</h4>
+<!--                    -->
+                    <p><b th:text="${article.author}">ShakeSpear</b></p>
+                </div>
+                <div class="card-body p-1 bg-light">
+<!--                    -->
+                    <p th:text="${article.description}">Create & Setup Spring Boot Project
+                        Code Home Page
+                        Code User Entity Class & UserRepository Interface
+                        Code UserRepositoryTests (unit tests for data access layer)
+                        Code Users Listing Page
+                        Code Add User Function
+                        Code Update User Function
+                        Code Delete User Function</p>
+                </div>
+
+                <div class="card-footer text-muted p-1">
+<!--                    -->
+                    <div th:text="${article.createdAt}" class="float-start">
+                        <p >12/01/2022</p>
+                    </div>
+                    <div class="btn-group-sm float-end">
+                        <a class="btn btn-outline-danger" th:href="@{/delete/{id}(id=${article.id})}">Delete</a>
+                        <a class="btn btn-outline-primary">Edit</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="btn btn-outline-secondary mt-2" th:href="@{/write-article}">Write Article</a>
+    </div>
+
+    <script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
+</body>
+</html>
